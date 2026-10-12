@@ -1,0 +1,5 @@
+- Use `tools/Donecount.py` when the user needs counts for ticket statuses supplied directly as command-line values.
+- Run it from the project root with one positional argument per ticket, for example: `python tools/Donecount.py Done Done "In Progress" "To Do" "In Progress"`.
+- Quote each status containing spaces so it is passed as one argument.
+- The tool groups exact, case-sensitive status strings and prints one `status: count` line per status, in first-seen order.
+- Present the output counts as produced; do not infer ticket details or combine differently cased statuses.
