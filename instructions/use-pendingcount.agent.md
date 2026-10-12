@@ -1,0 +1,5 @@
+- Use `tools/pendingcount.py` when the user needs the total number of tickets whose status is not exactly `Done`.
+- Run it from the project root with one positional argument per ticket, for example: `python tools/pendingcount.py Done Done "In Progress" "To Do"`.
+- Quote each status containing spaces so it is passed as one argument.
+- The script counts all supplied values except case-sensitive `Done`; values such as `done` or `DONE` count as pending.
+- Report the output as `Pending ticket count: <count>` and do not infer statuses for tickets that were not supplied.
