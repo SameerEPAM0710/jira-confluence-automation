@@ -1,0 +1,31 @@
+- Create or update instructions in `./instructions/` using file names like `name.agent.md`.
+- Keep each instruction focused on one workflow or decision path.
+- Prefer platform-agnostic Markdown over IDE-specific instruction formats.
+- Keep instructions concise, actionable, and easy to reuse across tools and agents.
+- Use bullet points with short statements and sub-bullets for detail when needed.
+- Add a one-line description in `./instructions/main.agent.md` for every new instruction.
+- Keep the root catalog file as the routing index for the project.
+- Use names that start with a verb, such as `create-`, `update-`, `generate-`, `review-`.
+- Follow the pattern: `./instructions/[verb]-[topic].agent.md`.
+- Store shared project knowledge in instruction files instead of repeating it in chat prompts.
+- Treat `main.agent.md` as the entry point for discovery and routing.
+- For VS Code + GitHub Copilot, keep `.github/copilot-instructions.md` as the loader for the project.
+- Keep the entry point simple and reference `./instructions/main.agent.md` on every prompt.
+- For project-wide agent discovery, add `AGENTS.md` in the repository root when needed.
+- Keep instruction files pure Markdown; wrappers like prompts or rules should only reference them.
+- Prefer composition over large monolithic instruction files.
+- Split dense workflows into smaller linked instruction files when they grow beyond a manageable size.
+- Use keywords in the catalog entry so the model can route requests more reliably.
+- Include `Target` or `Exceptions` details only when they are helpful for precise matching.
+- When updating an existing instruction, read it first, then add the missing guidance without rewriting the whole file.
+- Preserve useful content and build on it incrementally.
+- Add lessons learned from practical work to improve future use.
+- Test examples and commands before documenting them in a reusable instruction.
+- If the project adds a new IDE-specific wrapper, keep it thin and point it to the shared instruction file.
+- For Copilot, keep `.github/prompts/*.prompt.md` files as thin wrappers to the shared instruction files.
+- For Cursor or Claude, use thin rule/command wrappers instead of duplicating instruction logic.
+- Keep the instruction system portable: one source of truth in `instructions/`, small IDE adapters around it.
+- Use this workflow when a repeated task is showing up in multiple chats: extract the steps into one instruction file.
+- Revisit the instruction file after actual usage and refine it with real examples from the project.
+- Keep the instruction system lightweight enough for the team to maintain regularly.
+- When in doubt, prefer a small, reusable instruction over a broad, complex one.

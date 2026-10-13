@@ -1,0 +1,8 @@
+- Use this instruction when the user asks to calculate or estimate compound growth for a principal, annual rate, compounding frequency, and duration.
+- Confirm all four inputs are available; ask for missing values instead of guessing.
+- Run the tool from the project root with `python tools/compound_interest.py --principal <amount> --annual-rate <percent> --compounds-per-year <count> --years <duration>`.
+- Pass the annual rate as a percentage, so `5` means `5%`.
+- Pass a positive integer for `--compounds-per-year`; principal, annual rate, and years must be non-negative.
+- Present both output labels exactly: `Final amount` and `Interest earned`.
+- Explain that the results are rounded to two decimal places; do not assign a currency unless the user supplied one.
+- Keep the response concise and do not describe the estimate as financial advice.
