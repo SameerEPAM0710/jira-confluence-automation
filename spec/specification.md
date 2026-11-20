@@ -42,7 +42,7 @@ Users should be able to verify an insight against its Jira issue or Confluence p
 
 As a delivery manager, I want a weekly view of blocked, overdue, aging, or milestone-threatening work across selected projects so that I can investigate delivery risks without assembling the report manually.
 
-**Acceptance scenarios**
+#### Acceptance scenarios
 
 1. **Given** selected projects have been configured and their data is current, **when** the scheduled digest completes, **then** the manager can see the relevant work, the signal attached to each item, the reason for the signal, and a link to the source issue or page.
 2. **Given** a prior digest completed successfully, **when** a new digest is generated, **then** it identifies changes since that digest using the configured comparison fields and links each changed item to its source.
@@ -53,7 +53,7 @@ As a delivery manager, I want a weekly view of blocked, overdue, aging, or miles
 
 As a meeting facilitator, I want explicitly formatted actions in Confluence notes collected as reviewable proposals so that decisions can be tracked in Jira without losing their context or creating duplicate work.
 
-**Acceptance scenarios**
+#### Acceptance scenarios-1
 
 1. **Given** a configured meeting page contains an explicitly formatted action, **when** it is processed, **then** the proposed action shows its text, any stated owner and due date, the source page, and any fields that need user input.
 2. **Given** an action is missing an owner, due date, or other configured required field, **when** it is presented, **then** the missing information is identified and is not silently invented.
@@ -66,7 +66,7 @@ As a meeting facilitator, I want explicitly formatted actions in Confluence note
 
 As a delivery manager, I want to see how planned work is distributed and whether it exceeds known capacity so that I can identify concentration or upcoming gaps early.
 
-**Acceptance scenarios**
+#### Acceptance scenarios-2
 
 1. **Given** Jira assignment and estimate or remaining-work data is available, **when** the workload view is generated for a configured team and time window, **then** it summarizes the work by the configured person or team grouping and links to the contributing issues.
 2. **Given** authorized capacity data is configured, **when** work is compared with capacity, **then** the view identifies the comparison period, units, and capacity source used.
@@ -77,7 +77,7 @@ As a delivery manager, I want to see how planned work is distributed and whether
 
 As a project administrator, I want to select authorized projects and sources, configure schedules, and inspect run outcomes so that the automations operate only within their intended scope.
 
-**Acceptance scenarios**
+#### Acceptance scenarios-3
 
 1. **Given** an administrator configures a project or source, **when** the connection is validated, **then** the system reports the granted access and any missing permissions without exposing credentials.
 2. **Given** a schedule is configured, **when** its run starts and finishes, **then** an authorized user can see its status, completion time, source freshness, and any actionable error.
@@ -180,4 +180,4 @@ As a project administrator, I want to select authorized projects and sources, co
 - What is the source of team membership and capacity, what units and time windows are used, and may individual capacity or leave data be processed?
 - Where should digests and failures be delivered or viewed, and what schedule timezone is required?
 - What data retention, deletion, audit-log, and report-export requirements apply?
-- What availability, performance, and maximum project/issue volume targets must the system meet?
+- What availability, performance, and maximum project/issue volume targets must the system meet?.
