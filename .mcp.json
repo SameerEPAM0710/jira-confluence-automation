@@ -1,0 +1,61 @@
+{
+	"mcpServers": {
+		"calculator-windows": {
+			"type": "stdio",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"./path/to/mcp-calculator.ps1"
+			],
+			"tools": [
+				"*"
+			]
+		},
+		"echo-windows": {
+			"type": "stdio",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"./path/to/mcp-echo.ps1"
+			],
+			"tools": [
+				"*"
+			]
+		},
+		"get_time-windows": {
+			"type": "stdio",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"./path/to/mcp-time.ps1"
+			],
+			"tools": [
+				"*"
+			]
+		},
+		"github": {
+			"type": "http",
+			"url": "https://api.githubcopilot.com/mcp/",
+			"tools": [
+				"*"
+			]
+		},
+		"atlassian": {
+			"type": "http",
+			"url": "https://mcp.atlassian.com/v2/mcp",
+			"tools": [
+				"*"
+			]
+		},
+		"chrome-devtools": {
+      "command": "npx",
+      "args": ["chrome-devtools-mcp@latest", "--categoryExtensions"]
+		}
+	}
+}
