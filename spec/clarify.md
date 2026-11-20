@@ -205,4 +205,4 @@ The entity list is a useful domain inventory but does not state identifiers, own
 2. Set user identity, authorization, and integration-permission model.
 3. Define the MVP's signal/action/workload business rules and source mappings.
 4. Define review, duplicate resolution, and recovery semantics for Jira writes.
-5. Decide run schedule, timezone, delivery, freshness, retention, and measurable operating targets.
+5. Decide run schedule, timezone, delivery, freshness, retention, and measurable operating targets
