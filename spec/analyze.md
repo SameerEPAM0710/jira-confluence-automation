@@ -17,7 +17,7 @@
 ### Phase 0: Scope and Decision Gates
 
 | Task | Complexity | Dependencies | Risks and assessment |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | T-001 | Medium | None | Product stakeholders may not agree on MVP or deferrals. Record an owner and decision date; otherwise every later phase remains scope-ambiguous. |
 | T-002 | High | T-001 | Jira/Confluence editions, auth, scopes, and credential ownership affect the integration architecture. Validate required fields and permissions against a controlled tenant before approving. |
 | T-003 | High | T-002 | Shared credentials can expose data beyond an application's user's source permissions. Requires a complete role/scope matrix and negative-access examples, not only role names. |
@@ -29,7 +29,7 @@
 ### Phase 1: Architecture and Workflow Design
 
 | Task | Complexity | Dependencies | Risks and assessment |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | T-008 | High | M0 | Data lifecycle and relationships affect authorization, snapshots, audit, deletion, and retries. Logical model must capture ownership and tenant/project isolation, not just entity names. |
 | T-009 | High | T-003, T-008 | API-level checks can be correct while repository/query paths still leak cross-scope data. Include object-level authorization and tests at data-access boundaries. |
 | T-010 | High | T-002, T-004, T-005 | Normalization can hide provider-specific semantics or missing fields. Preserve source identifiers, field provenance, and distinctions between null, absent, and empty. |
@@ -40,7 +40,7 @@
 ### Phase 2: Shared Platform Foundation
 
 | Task | Complexity | Dependencies | Risks and assessment |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | T-014 | Medium | M1 | Workspace contains unrelated projects, so choosing the app root incorrectly could cause accidental churn. Acceptance should identify the exact application directory and preserve unrelated files. |
 | T-015 | Medium | T-014 | Docker readiness and persistent volumes can differ across developer environments. Validate clean startup, restart persistence, and teardown behavior on the supported OS/tooling. |
 | T-016 | High | T-002, T-014 | “Approved development secret injection” and runtime secret storage are unresolved mechanisms. Tests must include logs, source maps, build artifacts, and error paths. |
@@ -53,7 +53,7 @@
 ### Phase 3: Integration and Data-Quality Foundation
 
 | Task | Complexity | Dependencies | Risks and assessment |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | T-022 | High | M2, T-002, T-010 | Jira API differences, permission validation, pagination, and rate limits are provider-specific. Keep writes disabled in this read/data foundation and use sandbox credentials. |
 | T-023 | High | M2, T-002, T-010 | Confluence content formats and page permission behavior can differ by edition. Confirm the approved page formats and source links with representative pages. |
 | T-024 | High | T-004, T-009, T-022, T-023 | Scope persistence and user-facing administration are security-critical. The task's outcome for ambiguous mapping must match the approved policy and prevent unauthorized scope expansion. |
@@ -65,7 +65,7 @@
 ### Phase 4A: Weekly Delivery Risk Digest (Conditional)
 
 | Task | Complexity | Dependencies | Risks and assessment |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | T-029 | Medium | M3; approved digest scope/rules | “Configuration” may mean API only or user-facing UI; FR-006 requires user configuration. Include authorization, validation, and safe rule-change behavior. |
 | T-030 | High | T-029 | Signal correctness depends on workflow-specific fields, thresholds, and date semantics. Keep each signal deterministic and test boundary/missing-data cases. |
 | T-031 | High | T-029, T-030; approved retention policy | Snapshot comparison can misreport changes after scope/rule changes or deletions. Version the comparison configuration and test baseline invalidation. |
@@ -75,7 +75,7 @@
 ### Phase 4B: Confluence Decisions to Jira Actions (Conditional)
 
 | Task | Complexity | Dependencies | Risks and assessment |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | T-034 | High | M3; approved page-selection/markup rules; T-006 | Page edits, repeated processing, markup variation, and optional model behavior can create missing or duplicate proposals. Require stable source/action identity and reprocessing rules. |
 | T-035 | High | T-034, T-018, T-020 | Proposal states and edits must retain source evidence and actor attribution. Confirm concurrent reviewers cannot approve stale payloads. |
 | T-036 | High | T-022, T-035; approved field/match policy | Duplicate matching can be ambiguous and provider-specific. Acceptance should explicitly test zero, one, and multiple matches and stale candidate data. |
@@ -86,7 +86,7 @@
 ### Phase 4C: Workload and Capacity Early Warning (Conditional)
 
 | Task | Complexity | Dependencies | Risks and assessment |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | T-040 | Medium | M3; approved team-membership/privacy policy | Team membership can be stale or ambiguous. Ensure scope selection cannot reveal teams or individual assignments outside the user's access. |
 | T-041 | High | T-040; approved work/status/unit rules | Estimates and remaining work may be inconsistent or non-comparable. Missing estimates, status exclusions, and period allocation need fixture-backed rules. |
 | T-042 | High | T-040; approved capacity provider/permissions | No provider is selected. Identity matching, period alignment, units, API availability, and privacy may dominate complexity; this task needs a concrete adapter contract. |
@@ -96,7 +96,7 @@
 ### Phase 5: Operations and Hardening
 
 | Task | Complexity | Dependencies | Risks and assessment |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | T-045 | Medium | T-020, M3, at least one selected capability track | “At least one selected capability track” is not a concrete dependency edge. Run history also needs paging, retention, and per-user/project filtering. |
 | T-046 | High | T-018 and selected capability tracks | Matrix coverage can grow rapidly across roles, projects, and operations. Tie test cases directly to T-003's approved matrix and include read-only access. |
 | T-047 | High | T-007, T-008, at least one selected capability track | Deletion can conflict with audit/comparison retention and external source ownership. Define entity-specific policies and test cascades before implementation. |
@@ -108,7 +108,7 @@
 ### Phase 6: User Acceptance and Release
 
 | Task | Complexity | Dependencies | Risks and assessment |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | T-052 | High | M4 for each enabled track, M5 | Acceptance can be blocked by unavailable tenants/users or non-representative data. Record evidence per scenario and keep disabled-track criteria out of the release gate. |
 | T-053 | Medium | T-002, T-007, T-052 | This follows UAT, so environment findings may arrive late. Clarify whether UAT itself uses this non-production environment and move configuration readiness earlier if needed. |
 | T-054 | Medium | T-015, T-047, T-048, T-050, T-053 | A second-operator exercise is valuable but assumes a deployable target exists. Deployment topology and provisioning are not explicit tasks. |
