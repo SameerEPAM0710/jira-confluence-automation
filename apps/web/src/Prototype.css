@@ -1,0 +1,48 @@
+.demo-banner, .error-banner { min-height: 34px; display: flex; align-items: center; gap: 8px; padding: 7px 11px; margin: -10px 0 13px; border: 1px solid #e9e2c8; border-radius: 5px; color: #827443; background: #fffbee; font-size: 9px; }
+.demo-banner > svg, .error-banner > svg { flex: 0 0 auto; }
+.demo-banner .storage-mode { margin-left: auto; color: #9a8c62; font-size: 8px; white-space: nowrap; }
+.error-banner { justify-content: flex-start; border-color: #efc5b9; color: #9b5141; background: #fff3ef; }
+.error-banner button { margin-left: auto; border: 0; color: #804332; background: transparent; font-size: 9px; font-weight: 700; cursor: pointer; }
+.app-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; color: #516b59; background: #f2f4ef; }
+.app-loading strong { color: #274235; font: 600 17px 'Space Grotesk', sans-serif; }
+.app-loading small { color: #89968d; font-size: 10px; }
+.settings-form { padding-bottom: 15px; }
+.settings-section { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px 18px; padding: 15px 17px; border-bottom: 1px solid #edf0eb; }
+.settings-section h3 { grid-column: 1/-1; display: flex; align-items: baseline; gap: 9px; margin: 0 0 3px; color: #40584a; font: 600 11px 'Space Grotesk', sans-serif; }
+.settings-section h3 small { color: #96a198; font: 400 8px 'DM Sans',sans-serif; }
+.setting-control { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #53665a; font-size: 9px; }
+.setting-control > span { display: flex; flex-direction: column; gap: 3px; }
+.setting-control small { color: #99a39c; font-size: 8px; }
+.setting-control input, .setting-control select { width: 130px; min-height: 30px; padding: 4px 7px; border: 1px solid #e0e7dd; border-radius: 5px; color: #41594b; background: white; font-size: 9px; }
+.setting-control input[type="number"] { width: 78px; }
+.setting-check { display: flex; align-items: center; gap: 7px; color: #607067; font-size: 9px; }
+.setting-check input { accent-color: #53794e; }
+.settings-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 17px 0; color: #8c998f; font-size: 8px; }
+.run-controls, .panel-action-row { display: flex; align-items: center; gap: 8px; padding: 12px 15px; border-bottom: 1px solid #edf0eb; }
+.run-controls .button, .panel-action-row .button { min-height: 30px; font-size: 9px; }
+.panel-action-row > span { margin-left: auto; color: #8b988e; font-size: 8px; }
+.capacity-row-detail { color: #98a39a; font-size: 8px; }
+.modal-edit-fields label { display: flex; flex-direction: column; gap: 5px; color: #79877e; font-size: 8px; font-weight: 700; }
+.modal-edit-fields input { width: 100%; min-height: 32px; padding: 6px 8px; border: 1px solid #e0e7dd; border-radius: 5px; color: #41594b; background: white; font: 400 10px 'DM Sans',sans-serif; }
+.modal-edit-fields > div { display: flex; flex-direction: column; gap: 5px; }
+.duplicate-option { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 0; border-top: 1px solid #edf0eb; }
+.duplicate-option > div:first-child { display: flex; flex-direction: column; gap: 4px; }
+.duplicate-option strong { color: #43594a; font-size: 9px; }
+.duplicate-option small { color: #8c998f; font-size: 8px; }
+.duplicate-option > div:last-child { display: flex; gap: 5px; }
+.duplicate-option .button { min-height: 28px; padding-inline: 8px; font-size: 8px; }
+.modal-message { margin-top: 10px; color: #a05a45; font-size: 9px; }
+.modal-source a { margin-left: auto; color: #607d52; font-size: 9px; text-decoration: none; }
+.connection-validated { display: block; margin-top: 5px; color: #929e95; font-size: 8px; }
+.source-link { text-decoration: none; }
+@media (max-width: 640px) {
+  .demo-banner { align-items: flex-start; font-size: 8px; }
+  .demo-banner .storage-mode { max-width: 30%; overflow: hidden; text-overflow: ellipsis; }
+  .settings-section { grid-template-columns: 1fr; padding-inline: 12px; }
+  .settings-section h3 { grid-column: auto; flex-direction: column; gap: 3px; }
+  .settings-footer { align-items: flex-start; flex-direction: column; padding-inline: 12px; }
+  .run-controls { flex-wrap: wrap; }
+  .panel-action-row { align-items: flex-start; flex-direction: column; }
+  .panel-action-row > span { margin-left: 0; }
+  .duplicate-option { align-items: flex-start; flex-direction: column; }
+}
