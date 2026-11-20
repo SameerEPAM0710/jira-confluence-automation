@@ -31,7 +31,7 @@ Proposed logical separation, to be adapted to the confirmed repository structure
 
 **Purpose**: Make the first deliverable safe to design and objectively testable.
 
-**Work**
+**Work
 
 - Select the MVP capability and order for the other two; identify which capabilities are explicitly deferred.
 - Decide supported Jira and Confluence products/versions, API access method, credential ownership, and minimum scopes.
@@ -42,7 +42,7 @@ Proposed logical separation, to be adapted to the confirmed repository structure
 - Decide schedule timezone, missed-run/retry behavior, report delivery or viewing location, freshness thresholds, and partial-result policy.
 - Set retention/deletion, audit access, expected data volume, performance, availability, and recovery targets needed for the first release.
 
-**Milestone M0: Scope and Security Decisions Approved**
+**Milestone M0: Scope and Security Decisions Approved
 
 - MVP and deferred capabilities are recorded in the specification.
 - Identity, authorization, integration scope, supported products, and credential handling are approved.
@@ -55,7 +55,7 @@ Proposed logical separation, to be adapted to the confirmed repository structure
 
 **Purpose**: Convert approved requirements into backend/frontend boundaries and testable contracts without committing prematurely to details outside the spec.
 
-**Work**
+**Work
 
 - Define the logical entities and relationships for integrations, project scope, automation configuration, runs, source snapshots, findings, proposals, approvals, Jira mutations, and audit events.
 - Define authorization checks at API and data-access boundaries, including project-level access and read-only operation.
@@ -67,7 +67,7 @@ Proposed logical separation, to be adapted to the confirmed repository structure
 - Create a threat model for credentials, source content, authorization bypass, prompt/content injection if AI is used, and duplicate or unintended writes.
 - Map specification FRs, NFRs, scenarios, and success criteria to design decisions and planned tests.
 
-**Milestone M1: Design and Contracts Reviewed**
+## Milestone M1: Design and Contracts Reviewed
 
 - Architecture and data-flow boundaries are documented and comply with the constitution.
 - Authorization, state transitions, retries, audit events, and data lifecycle have reviewed definitions.
@@ -78,7 +78,7 @@ Proposed logical separation, to be adapted to the confirmed repository structure
 
 **Purpose**: Establish a runnable, testable, secure application baseline.
 
-**Work**
+## Work
 
 - Create or confirm the application repository layout for the React/Vite frontend, Express backend, migrations, and tests without disturbing unrelated workspace projects.
 - Configure local Docker services for PostgreSQL 15, persistent development data, health checks, and documented startup/shutdown behavior.
@@ -89,7 +89,7 @@ Proposed logical separation, to be adapted to the confirmed repository structure
 - Establish structured, redacted operational logging, correlation identifiers, health checks, and error responses.
 - Add automated test and build gates for frontend, backend, migrations, and security-sensitive behavior.
 
-**Milestone M2: Secure Local Platform Runs**
+## Milestone M2: Secure Local Platform Runs
 
 - A developer can start the app and PostgreSQL 15 using the documented Docker workflow.
 - Migrations apply to a clean database and tests can use an isolated database.
@@ -100,7 +100,7 @@ Proposed logical separation, to be adapted to the confirmed repository structure
 
 **Purpose**: Prove safe source access and establish consistent retrieval, freshness, and failure behavior before feature-specific calculations.
 
-**Work**
+**Work
 
 - Implement Jira and Confluence adapters for the approved editions and authentication model.
 - Validate connection permissions and selected project/page scope; report actionable missing-permission errors without exposing credentials.
@@ -110,7 +110,7 @@ Proposed logical separation, to be adapted to the confirmed repository structure
 - Treat Jira and Confluence content as untrusted data; ensure retrieved content cannot alter application instructions or bypass authorization/approval.
 - Add adapter tests with fixtures and contract tests against controlled test instances where available.
 
-**Milestone M3: Permission-Safe Data Slice Verified**
+## Milestone M3: Permission-Safe Data Slice Verified
 
 - An authorized test user can retrieve the configured source data and follow source links.
 - An unauthorized user cannot retrieve that data or trigger a source operation.
@@ -123,7 +123,7 @@ Implement the selected MVP track first. The order of later tracks is decided at 
 
 ### Track A: Weekly Delivery Risk Digest
 
-**Work**
+**Work
 
 - Implement project selection, approved signal configuration, and on-demand digest generation.
 - Implement only the approved signal rules, with each finding showing the triggering fields, explanation, timestamp, and Jira/Confluence source links.
@@ -132,14 +132,14 @@ Implement the selected MVP track first. The order of later tracks is decided at 
 - Support empty, partial, stale, and failed digest states and the approved behavior when one source/project fails.
 - Add fixture tests for every signal, threshold boundary, missing field, changed/removed issue, changed rule/scope, and failed comparison baseline.
 
-**Milestone M4-A: Digest Accepted**
+## Milestone M4-A: Digest Accepted
 
 - SC-001, SC-002, and applicable parts of SC-008 pass against approved fixtures.
 - Scheduled and on-demand behavior, timezone, data freshness, delivery, and comparison are verified against M0 decisions.
 
 ### Track B: Confluence Decisions to Jira Actions
 
-**Work**
+**Work
 
 - Implement the approved Confluence page-selection and explicit-action parsing rules.
 - Preserve the source page and relevant source location; show extracted text, stated fields, missing fields, and uncertainty evidence.
@@ -148,14 +148,14 @@ Implement the selected MVP track first. The order of later tracks is decided at 
 - Make writes idempotent; reconcile uncertain outcomes before retry; retain the approved audit context and source-to-issue links.
 - Test malformed/edited/deleted pages, missing fields, ambiguous and duplicate matches, permission failures, concurrent/retried requests, and timed-out writes.
 
-**Milestone M4-B: Action Workflow Accepted**
+**Milestone M4-B: Action Workflow Accepted
 
 - SC-003, SC-004, and applicable parts of SC-006/SC-007 pass.
 - No Jira write occurs before the approved final confirmation; retried or concurrent operations cannot silently create duplicates.
 
 ### Track C: Workload and Capacity Early Warning
 
-**Work**
+**Work
 
 - Implement approved project/team/person and time-window selection.
 - Normalize estimates and remaining-work values according to the approved precedence, status filters, and units.
@@ -163,7 +163,7 @@ Implement the selected MVP track first. The order of later tracks is decided at 
 - Display aggregation, contributing issue links, capacity source, missing inputs, and uncertainty; apply approved privacy aggregation rules.
 - Test known totals, unestimated work, unmatched team members, missing capacity, incompatible units, period boundaries, and restricted personal data.
 
-**Milestone M4-C: Workload View Accepted**
+**Milestone M4-C: Workload View Accepted
 
 - SC-005 and applicable parts of SC-006 pass against independently calculated fixtures.
 - The view never treats missing capacity as zero or sufficient and complies with approved access and aggregation rules.
@@ -172,7 +172,7 @@ Implement the selected MVP track first. The order of later tracks is decided at 
 
 **Purpose**: Verify the system as an operated product, not only as individual feature workflows.
 
-**Work**
+**Work
 
 - Complete schedule monitoring, run history, per-source error summaries, and approved notification or in-app delivery behavior.
 - Verify role-based access for configuration, source content, findings, proposals, approvals, run history, and audit history.
@@ -182,7 +182,7 @@ Implement the selected MVP track first. The order of later tracks is decided at 
 - Run accessibility and responsive checks against the approved conformance target and viewport support matrix.
 - Measure response time and run completion against the agreed volume and performance targets; address failures before release.
 
-**Milestone M5: Operational Readiness Verified**
+## Milestone M5: Operational Readiness Verified
 
 - NFR-001 through NFR-008 have test evidence or documented accepted exceptions.
 - SC-006 through SC-008 pass for the enabled release capabilities.
@@ -192,7 +192,7 @@ Implement the selected MVP track first. The order of later tracks is decided at 
 
 **Purpose**: Confirm the enabled capability set works with representative users and controlled source instances.
 
-**Work**
+**Work
 
 - Run end-to-end acceptance scenarios with representative Jira/Confluence data and the intended user roles.
 - Verify the approved source permissions, field mappings, schedule, timezone, thresholds, and capacity inputs in a non-production environment.
@@ -201,7 +201,7 @@ Implement the selected MVP track first. The order of later tracks is decided at 
 - Publish deployment, configuration, credential setup/rotation, migration, rollback, and operator runbooks.
 - Obtain project-owner approval for the enabled capability set and document deferred capabilities and known limitations.
 
-**Milestone M6: Release Approved**
+### Milestone M6: Release Approved
 
 - All acceptance scenarios and success criteria for the enabled release capabilities pass.
 - Security and operational gates are complete; no unresolved high-priority risk is accepted without an owner and mitigation.
